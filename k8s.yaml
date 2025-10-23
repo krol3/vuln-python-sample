@@ -74,12 +74,13 @@ spec:
         prometheus.io/path: "/metrics"
     spec:
       securityContext:
+        allowPrivilegeEscalation: false
         runAsNonRoot: true
         runAsUser: 1000
         runAsGroup: 1000
         fsGroup: 1000
       containers:
-      - name: vulnerable-app
+      - name: vulnerable-app      
         image: krol/vulnerable-app:febraban # Replace with your actual image
         imagePullPolicy: Always
         ports:
